@@ -112,6 +112,32 @@ input:focus {
   filter: brightness(1.1);
 }
 
+.game-status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.score-display {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.victory-icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
 .accent-text {
   color: var(--neon-green);
   font-weight: bold;
@@ -157,6 +183,43 @@ input:focus {
 
 .victory-card::before {
   background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+}
+
+.clue-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.capture-area {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  min-height: 100px;
+  align-items: center;
+}
+
+.camera-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.success-msg {
+  text-align: center;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.hunt-card::before {
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
 }
 
 .footer-link {
