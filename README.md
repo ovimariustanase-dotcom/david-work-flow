@@ -1,7 +1,15 @@
-# New Project
+# Vânătoare de Comori (Scavenger Hunt)
 
-Welcome to your newly setup repository! 
+Aplicație modernă pentru copii (10-15 ani).
 
-## Getting Started
+## Rezumat
+Această aplicație permite organizarea unor vânători de comori interactive.
 
-Add your code here and track it using Git!
+## Cum pornești aplicația:
+1. `npm install` (deja făcut)
+2. `npm run dev`
+
+## Detalii Tehnice:
+- **Framework**: React + Vite
+- **Stilizare**: Vanilla CSS (Cyber Spy Theme)
+- **Stare**: Phase 1 (MVP Local)
