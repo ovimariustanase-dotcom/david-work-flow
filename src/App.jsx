@@ -93,21 +93,21 @@ function App() {
 
   const handleJoin = () => {
     const normalizedCode = gameCode.trim().toUpperCase()
-    if (normalizedCode === 'AGENT007') {
+    if (normalizedCode === 'ESCAPE') {
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
       setTimeLeft(300)
       setPuzzleInput('')
     } else if (normalizedCode.length > 0) {
-      alert(`Codul ${normalizedCode} este valid, dar pentru demo folosește AGENT007`)
+      alert(`Codul ${normalizedCode} este valid, dar pentru demo folosește ESCAPE`)
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
       setTimeLeft(300)
       setPuzzleInput('')
     } else {
-      alert('Te rugăm să introduci un cod valid (ex: AGENT007).')
+      alert('Te rugăm să introduci un cod valid (ex: ESCAPE).')
     }
   }
 
@@ -213,7 +213,7 @@ function App() {
       <div className="input-group">
         <input 
           type="text" 
-          placeholder="Codul Jocului (ex: AGENT007)" 
+          placeholder="Codul Jocului (ex: ESCAPE)" 
           value={gameCode}
           onChange={(e) => setGameCode(e.target.value)}
         />
