@@ -6,7 +6,7 @@ function App() {
   const [currentLevel, setCurrentLevel] = useState(0)
   const [puzzleInput, setPuzzleInput] = useState('')
   const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(300) // 300 de secunde (5 minute) per nivel
+  const [timeLeft, setTimeLeft] = useState(420) // 420 de secunde (7 minute) per nivel
 
   const levels = [
     {
@@ -97,14 +97,14 @@ function App() {
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
-      setTimeLeft(300)
+      setTimeLeft(420)
       setPuzzleInput('')
     } else if (normalizedCode.length > 0) {
       alert(`Codul ${normalizedCode} este valid, dar pentru demo folosește ESCAPE`)
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
-      setTimeLeft(300)
+      setTimeLeft(420)
       setPuzzleInput('')
     } else {
       alert('Te rugăm să introduci un cod valid (ex: ESCAPE).')
@@ -119,7 +119,7 @@ function App() {
       if (currentLevel < levels.length - 1) {
         setCurrentLevel(prev => prev + 1)
         setPuzzleInput('')
-        setTimeLeft(300)
+        setTimeLeft(420)
       } else {
         setScreen('victory')
       }
