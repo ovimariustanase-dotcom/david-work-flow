@@ -117,6 +117,48 @@ input:focus {
   font-weight: bold;
 }
 
+.badge {
+  display: inline-block;
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--neon-blue);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border: 1px solid var(--neon-blue);
+}
+
+.puzzle-box {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 25px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.riddle {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.sequence {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #fff;
+}
+
+.neon-text {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.victory-card::before {
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+}
+
 .footer-link {
   margin-top: 40px;
   font-size: 0.9rem;
