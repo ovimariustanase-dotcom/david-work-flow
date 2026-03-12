@@ -32,6 +32,62 @@ function App() {
       question: 'Dacă A=1, B=2, C=3... care este suma literelor din cuvântul "SPY"?',
       answer: '60',
       hint: 'S(19) + P(16) + Y(25) = ?'
+    },
+    {
+      id: 4,
+      title: 'Nivel 4: Labirintul Logic',
+      description: 'Câte picioare au în total 3 păianjeni, 2 muște și un spion?',
+      question: 'Calculați totalul:',
+      answer: '38',
+      hint: 'Păianjen(8), Muscă(6), Spion(2). 3*8 + 2*6 + 2 = ?'
+    },
+    {
+      id: 5,
+      title: 'Nivel 5: Oglinda Timpului',
+      description: 'Dacă un ceas arată ora 09:00 reflectat în oglindă, care este ora reală?',
+      question: 'Introdu ora (cifră):',
+      answer: '3',
+      hint: 'Oglinda inversează stânga cu dreapta pe cadran.'
+    },
+    {
+      id: 6,
+      title: 'Nivel 6: Secvența Secretă',
+      description: 'Găsește elementul lipsă:',
+      question: '1, 4, 9, 16, 25, ?',
+      answer: '36',
+      hint: 'Sunt pătratele numerelor (1*1, 2*2...).'
+    },
+    {
+      id: 7,
+      title: 'Nivel 7: Greutatea Dovezilor',
+      description: 'O geantă cu echipament cântărește 10kg plus jumătate din propria greutate.',
+      question: 'Cât cântărește geanta?',
+      answer: '20',
+      hint: 'x = 10 + x/2'
+    },
+    {
+      id: 8,
+      title: 'Nivel 8: Codul Culorilor',
+      description: 'Dacă ROȘU=4, VERDE=5, ALBASTRU=8, cât este GALBEN?',
+      question: 'Introdu numărul:',
+      answer: '6',
+      hint: 'Numără literele din cuvântul "GALBEN".'
+    },
+    {
+      id: 9,
+      title: 'Nivel 9: Urmașii lui Fibonacci',
+      description: 'Codul de acces la seif urmează șirul:',
+      question: '1, 1, 2, 3, 5, 8, 13, ?',
+      answer: '21',
+      hint: 'Fiecare număr e suma celor două dinainte.'
+    },
+    {
+      id: 10,
+      title: 'Nivel 10: Ultima Strângere de Mână',
+      description: '8 spioni se întâlnesc și toți dau mâna între ei o singură dată.',
+      question: 'Câte strângeri de mână au loc în total?',
+      answer: '28',
+      hint: 'Formula: n*(n-1)/2'
     }
   ]
 
