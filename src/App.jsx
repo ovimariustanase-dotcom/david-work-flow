@@ -2,44 +2,40 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [gameCode, setGameCode] = useState('')
-  const [screen, setScreen] = useState('login') // 'login' | 'puzzle' | 'hunt' | 'victory'
+  const [screen, setScreen] = useState('login') // 'login' | 'puzzle' | 'victory'
   const [puzzleInput, setPuzzleInput] = useState('')
-  const [huntFound, setHuntFound] = useState(false)
   const [score, setScore] = useState(0)
   const [timeLeft, setTimeLeft] = useState(60) // 60 de secunde per nivel
 
   const handleJoin = () => {
-    if (gameCode.toUpperCase() === 'AGENT007') {
+    const normalizedCode = gameCode.trim().toUpperCase()
+    if (normalizedCode === 'AGENT007') {
       setScreen('puzzle')
       setScore(0)
       setTimeLeft(60)
-    } else if (gameCode.length > 0) {
-      alert(`Codul ${gameCode} este valid, dar pentru demo folosește AGENT007`)
+      setPuzzleInput('')
+    } else if (normalizedCode.length > 0) {
+      alert(`Codul ${normalizedCode} este valid, dar pentru demo folosește AGENT007`)
       setScreen('puzzle')
       setScore(0)
       setTimeLeft(60)
+      setPuzzleInput('')
     } else {
-      alert('Te rugăm să introduci un cod valid.')
+      alert('Te rugăm să introduci un cod valid (ex: AGENT007).')
     }
   }
 
   const handleSolve = () => {
-    if (puzzleInput === '32') {
+    if (puzzleInput.trim() === '32') {
       setScore(prev => prev + (timeLeft * 10))
-      setScreen('hunt')
-      setTimeLeft(60) // Reset timer for next level
+      setScreen('victory')
     } else {
-      alert('Cod incorect! Mai încearcă. Hint: Puterile lui 2.')
+      alert('Cod incorect! Mai încearcă. Hint: 16 + 16 = ?')
     }
   }
 
-  const handleCapture = () => {
-    setHuntFound(true)
-    setScore(prev => prev + (timeLeft * 15))
-    setTimeout(() => {
-      setScreen('victory')
-    }, 1500)
-  }
+  // Eliminăm handleCapture pentru că nu mai avem scavenger hunt
+
 
   // Timer logic
   useEffect(() => {
@@ -57,7 +53,11 @@ function App() {
         <p>Ai finalizat toate nivelele cu succes!</p>
         <div className="score-display">Scorul tău final: <span className="neon-text">{score}</span></div>
         <div style={{ marginTop: '30px' }}>
-          <button className="btn-primary" onClick={() => setScreen('login')}>
+          <button className="btn-primary" onClick={() => {
+            setScreen('login')
+            setGameCode('')
+            setPuzzleInput('')
+          }}>
             Joacă din nou
           </button>
         </div>
@@ -65,44 +65,7 @@ function App() {
     )
   }
 
-  if (screen === 'hunt') {
-    return (
-      <div className="card hunt-card">
-        <div className="game-status">
-          <div className="stat">⏳ {timeLeft}s</div>
-          <div className="stat">⭐ {score}</div>
-        </div>
-        <div className="header">
-          <span className="badge">Nivel 2: Explorare</span>
-          <h1>Vânătoarea <span className="accent-text">de Comori</span></h1>
-          <p>Trebuie să găsești un obiect din lumea reală!</p>
-        </div>
-
-        <div className="puzzle-box">
-          <p className="riddle">Obiectul de găsit:</p>
-          <div className="clue-text">"Ceva <span className="neon-text">ROȘU</span> care poate să zboare."</div>
-          <p style={{ marginTop: '10px', fontSize: '0.8rem' }}>(Ex: O jucărie, o poză cu o pasăre, un fruct)</p>
-        </div>
-
-        <div className="capture-area">
-          {!huntFound ? (
-            <button className="btn-primary camera-btn" onClick={handleCapture}>
-              📸 Fă o Poză
-            </button>
-          ) : (
-            <div className="success-msg">
-              <span style={{ fontSize: '2rem' }}>🎯</span>
-              <p>Poză analizată cu succes! Perfect.</p>
-            </div>
-          )}
-        </div>
-
-        <button className="btn-secondary" onClick={() => setScreen('login')} style={{ marginTop: '20px', background: 'transparent', color: 'var(--text-dim)', border: 'none', cursor: 'pointer' }}>
-          &larr; Abandonează Misiunea
-        </button>
-      </div>
-    )
-  }
+  // Nivelul hunt a fost eliminat la cererea utilizatorului
 
   if (screen === 'puzzle') {
     return (
@@ -144,8 +107,8 @@ function App() {
   return (
     <div className="card">
       <div className="header">
-        <h1>Scavenger <span className="accent-text">Hunt</span></h1>
-        <p>Introdu codul secret pentru a începe misiunea.</p>
+        <h1>Escape <span className="accent-text">Room</span></h1>
+        <p>Introdu codul secret pentru a începe misiunea de evadare.</p>
       </div>
 
       <div className="input-group">
