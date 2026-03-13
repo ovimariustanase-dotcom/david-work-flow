@@ -203,15 +203,20 @@ function App() {
         <div className="header">
           <h1>Harta <span className="accent-text">Misiunilor</span></h1>
           <p>Agent: {activeAccount.name} | Scor: {score}</p>
-          <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+          <div style={{ marginTop: '10px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <input 
               type="text" 
               placeholder="Cod Cameră (Ex: BETA)" 
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-              style={{ padding: '8px', borderRadius: '8px', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white' }}
+              style={{ padding: '8px', borderRadius: '8px', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', flex: 1 }}
             />
             <button onClick={() => setActiveRoom(roomCode)} className="btn-primary" style={{ padding: '8px 15px' }}>{activeRoom ? 'Conectat ✓' : 'Intră Online'}</button>
+          </div>
+          <div style={{ marginTop: '15px', padding: '10px', background: 'rgba(0, 243, 255, 0.1)', border: '1px solid var(--neon-blue)', borderRadius: '12px', textAlign: 'center' }}>
+            <span style={{ fontSize: '0.9rem', color: 'var(--neon-blue)', fontWeight: 800 }}>
+              🎯 OBIECTIV CURENT: NIVEL {activeAccount.unlockedLevel} - PROVOCAREA {activeAccount.unlockedChallenge}/10
+            </span>
           </div>
         </div>
 
@@ -259,8 +264,13 @@ function App() {
           <div className="stat">⭐ {score}</div>
         </div>
         <div className="header">
-          <span className="badge">{level.title} - {currentChallengeIdx + 1}/10</span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+            <span className="badge" style={{ fontSize: '1rem', padding: '8px 20px', background: 'var(--neon-blue)', color: 'black' }}>
+               NIVEL {currentLevelIdx + 1} - PROVOCAREA {currentChallengeIdx + 1}/10
+            </span>
+          </div>
           <h1>Evasion <span className="accent-text">Mode</span></h1>
+          <p style={{ fontWeight: 600, color: 'var(--neon-green)' }}>{level.title}</p>
           <p>Rezolvă puzzle-ul pentru a debloca următorul segment.</p>
         </div>
 
