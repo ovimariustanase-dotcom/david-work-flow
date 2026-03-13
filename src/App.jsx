@@ -6,7 +6,8 @@ function App() {
   const [currentLevel, setCurrentLevel] = useState(0)
   const [puzzleInput, setPuzzleInput] = useState('')
   const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(420) // 420 de secunde (7 minute) per nivel
+  const [timeLeft, setTimeLeft] = useState(720) // 720 de secunde (12 minute) per nivel
+  const [showAnswer, setShowAnswer] = useState(false)
 
   const levels = [
     {
@@ -97,15 +98,17 @@ function App() {
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
-      setTimeLeft(420)
+      setTimeLeft(720)
       setPuzzleInput('')
+      setShowAnswer(false)
     } else if (normalizedCode.length > 0) {
       alert(`Codul ${normalizedCode} este valid, dar pentru demo folosește ESCAPE`)
       setScreen('puzzle')
       setCurrentLevel(0)
       setScore(0)
-      setTimeLeft(420)
+      setTimeLeft(720)
       setPuzzleInput('')
+      setShowAnswer(false)
     } else {
       alert('Te rugăm să introduci un cod valid (ex: ESCAPE).')
     }
@@ -119,7 +122,8 @@ function App() {
       if (currentLevel < levels.length - 1) {
         setCurrentLevel(prev => prev + 1)
         setPuzzleInput('')
-        setTimeLeft(420)
+        setTimeLeft(720)
+        setShowAnswer(false)
       } else {
         setScreen('victory')
       }
@@ -190,6 +194,22 @@ function App() {
           <button className="btn-primary" onClick={handleSolve}>
             Verifică Codul
           </button>
+        </div>
+
+        <div style={{ marginTop: '20px' }}>
+          {!showAnswer ? (
+            <button 
+              onClick={() => setShowAnswer(true)}
+              style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '10px', cursor: 'pointer', width: '100%' }}
+            >
+              💡 Arată Răspunsul
+            </button>
+          ) : (
+            <div style={{ background: 'rgba(57, 255, 20, 0.1)', border: '1px solid var(--neon-green)', padding: '15px', borderRadius: '12px', textAlign: 'center' }}>
+              <p style={{ color: 'var(--neon-green)', fontWeight: 'bold' }}>Răspuns: {level.answer}</p>
+              <p style={{ fontSize: '0.9rem', marginTop: '5px' }}>📌 {level.hint}</p>
+            </div>
+          )}
         </div>
 
         <div style={{ marginTop: '15px', fontSize: '0.8rem', opacity: 0.5 }}>
