@@ -320,3 +320,41 @@ input:focus {
     max-width: 1000px;
   }
 }
+
+/* Accounts Layout */
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+.agents-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 50vh;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agents-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.agents-list::-webkit-scrollbar-track {
+  background: var(--glass-bg);
+  border-radius: 10px;
+}
+
+.agents-list::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+  border-radius: 10px;
+}
+
+.create-agent-section {
+  margin-top: auto;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 25px;
+}
